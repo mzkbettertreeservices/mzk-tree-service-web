@@ -1,0 +1,25 @@
+/*
+|--------------------------------------------------------------------------
+| CSS Principal (styles.css)
+|--------------------------------------------------------------------------
+| Contiene todos los estilos CSS que estaban en la etiqueta <style> del HTML.
+*/
+
+/* Estilos base del diseño limpio */
+.hero-bg {
+    /* REEMPLAZAR: Cambia esta URL por una imagen profesional */
+    background-image: url('portada.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; 
+}
+/* Para hacer scroll suave entre secciones */
+html {
+    scroll-behavior: smooth;
+}
+/* Estilo para el contenedor del logo (mantenido, aunque las clases de Tailwind hacen la magia) */
+.logo-container {
+    height: 40px; 
+    display: flex;
+    align-items: center;
+}
