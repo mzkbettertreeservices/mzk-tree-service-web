@@ -8,12 +8,25 @@
 /* Estilos base del diseño limpio */
 .hero-bg {
     /* REEMPLAZAR: Cambia esta URL por una imagen profesional */
-    background-image: url('portada2.jpeg');
-    background-size: cover;
-    background-position: center;
+    background-image: url('arbol.jpeg');
+   body {
+    /* 1. Asegura que la imagen no se repita */
+    background-repeat: no-repeat;
+    
+    /* 2. Escala la imagen para que cubra toda la pantalla */
+    background-size: cover; 
+    
+    /* 3. Fija la imagen para que el contenido se desplace sobre ella (efecto Parallax) */
     background-attachment: fixed; 
+    
+    /* 4. Centra la imagen en el viewport */
+    background-position: center center; 
 }
-/* Para hacer scroll suave entre secciones */
+
+/* OPCIONAL: Si necesitas que el fondo tenga una altura mínima */
+.hero-section { /* o el nombre del div de tu fondo */
+    min-height: 100vh; /* Asegura que ocupe al menos el 100% de la altura del viewport */
+}
 html {
     scroll-behavior: smooth;
 }
@@ -22,4 +35,18 @@ html {
     height: 40px; 
     display: flex;
     align-items: center;
+}
+    /* Media Query para Móviles (pantallas de 600px o menos) */
+@media (max-width: 600px) {
+
+    /* Reduce el tamaño del texto principal en el móvil */
+    h1 {
+        font-size: 1.8em; /* De 2em a 1.8em, por ejemplo */
+    }
+
+    /* Reduce el tamaño del texto del botón para que quepa */
+    .cta-button {
+        padding: 15px 20px; /* Reducimos un poco el padding */
+        font-size: 1.1em;   /* Reducimos el tamaño de la fuente */
+    }
 }
