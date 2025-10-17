@@ -1,0 +1,12 @@
+User-agent: *
+# Bloquea las carpetas administrativas o temporales. 
+Disallow: /wp-admin/
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /cache/
+
+# Permite el acceso a archivos esenciales (si usas WordPress).
+Allow: /wp-admin/admin-ajax.php
+
+# Indica la ubicación de tu Sitemap para que los bots la encuentren.
+Sitemap: https://mzkbettertreeservices.github.io/mzk-tree-service-web/sitemap.xml
