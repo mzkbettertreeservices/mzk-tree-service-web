@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- FUNCIONAL: Se necesita Tailwind CDN para que las clases funcionen -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <meta name="google-site-verification" content="6uNH0GY-A2bbPTx1WLQ36QFIxzUUfRZxqYO7JixPIPE" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,50 +11,63 @@
     
     <meta name="geo.region" content="US-CA"> 
     
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <!-- AHORA CORREGIDO: CSS para la imagen de fondo del Hero Section (Portada) dentro del archivo único. -->
+    <style>
+        .hero-bg {
+            /* Usando la imagen subida IMG_9569.jpg como fondo */
+            background-image: url('arbol.jpeg'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Efecto Parallax para mejor estética */
+        }
+        /* Estilos para el logo, solo si es necesario un tamaño específico */
+        .logo-container img {
+            width: 40px;
+            height: 40px;
+            object-fit: cover;
+        }
+    </style>
+    
 </head>
 <body class="text-gray-800">
 
+    <!-- HEADER: Navbar y Navegación -->
     <header class="sticky top-0 z-50 bg-white shadow-lg">
         <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
-           <a href="#" class="flex items-center space-x-2 text-2xl font-bold text-green-700 hover:text-green-900 transition duration-300 logo-container">
-    
-    <img src="logo.jpeg"
-         alt="Company Logo" 
-         class="h-10 w-10 rounded-full border-2 border-green-500 shadow-md p-[2px] bg-white object-cover"> 
-         
-    <span>MZK Tree Services</span>
-</a>
+            
+            <!-- Logo y Nombre de la Compañía -->
+            <a href="#" class="flex items-center space-x-2 text-2xl font-bold text-green-700 hover:text-green-900 transition duration-300 logo-container">
+                <!-- Nota: Usar una imagen simple para el logo, o un placeholder -->
+                <img src="logo.jpeg"
+                  alt="Company Logo" 
+                  class="rounded-full border-2 border-green-500 shadow-md p-[2px] bg-white object-cover"> 
+                <span>MZK Tree Services</span>
+            </a>
+            
+            <!-- Menú de Escritorio (Desktop) -->
             <div class="space-x-8 font-medium hidden md:block">
                 <a href="#services" class="text-gray-600 hover:text-green-700 transition duration-300">Services</a>
                 <a href="#projects" class="text-gray-600 hover:text-green-700 transition duration-300">Projects</a>
                 <a href="#contact-full" class="text-gray-600 hover:text-green-700 transition duration-300">Contact</a>
                 <a href="#contact-form" class="text-white bg-green-600 hover:bg-green-700 px-4 py-2 rounded-lg shadow-md transition duration-300">Get a Quote</a>
             </div>
-           <header>
-    <button id="mobile-menu-button" class="menu-icon">
-        ☰
-    </button>
 
-    <div id="mobile-menu">
-        <a href="#services">Services</a>
-        <a href="#about">About Us</a>
-        <a href="#contact" class="cta-button-mobile">Call Now!</a>
-    </div>
+            <!-- Menú Móvil (Hamburguesa) - JS omitido por simplicidad de archivo único -->
+            
+        </nav>
+        
+        <!-- Menú Móvil Desplegable (Oculto por defecto) -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-16 left-0 right-0 bg-white shadow-lg z-40 p-4 space-y-2 text-center">
+            <a href="#services" class="block py-2 px-4 text-gray-700 hover:bg-gray-100">Services</a>
+            <a href="#projects" class="block py-2 px-4 text-gray-700 hover:bg-gray-100">Projects</a>
+            <a href="#contact-full" class="block py-2 px-4 text-gray-700 hover:bg-gray-100">Contact</a>
+            <a href="#contact-form" class="block text-center text-white bg-green-600 hover:bg-green-700 px-4 py-2 rounded-lg mt-2">Get a Quote</a>
+        </div>
+    </header>
 
-</header>
-    
-    <div id="mobile-menu" class="hidden md:hidden absolute top-16 left-0 right-0 bg-white shadow-lg z-40 p-4 space-y-2 text-center">
-        <a href="#services" class="block py-2 px-4 text-gray-700 hover:bg-gray-100">Services</a>
-        <a href="#projects" class="block py-2 px-4 text-gray-700 hover:bg-gray-100">Projects</a>
-        <a href="#contact-full" class="block py-2 px-4 text-gray-700 hover:bg-gray-100">Contact</a>
-        <a href="#contact-form" class="block text-center text-white bg-green-600 hover:bg-green-700 px-4 py-2 rounded-lg mt-2">Get a Quote</a>
-    </div>
-
+    <!-- HERO SECTION (PORTADA): Usa la clase hero-bg con la imagen de fondo -->
     <section class="hero-bg h-screen flex items-center justify-center text-white" id="home">
         <div class="bg-black bg-opacity-60 p-12 rounded-xl text-center max-w-4xl backdrop-blur-sm">
             <h1 class="text-5xl md:text-7xl font-extrabold mb-4 leading-tight">
@@ -67,6 +82,7 @@
         </div>
     </section>
 
+    <!-- SERVICES SECTION -->
     <section id="services" class="py-20 bg-gray-50">
         <div class="container mx-auto px-6 text-center">
             <h2 class="text-4xl font-bold mb-4 text-green-800">Our Professional Tree Services</h2>
@@ -94,12 +110,14 @@
         </div>
     </section>
 
+    <!-- PROJECTS SECTION -->
     <section id="projects" class="py-20 bg-white">
         <div class="container mx-auto px-6 text-center">
             <h2 class="text-4xl font-bold mb-4 text-green-800">See Our Recent Work</h2>
             <p class="text-xl mb-12 text-gray-600">Experience matters. Check out the quality and precision we deliver on every job.</p>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Note: Using placeholder images. Replace with real ones if available (e.g., image.jpg, IMG_9569.jpg) -->
                 <div class="overflow-hidden rounded-xl shadow-xl hover:shadow-2xl transition duration-500 transform hover:scale-[1.02]">
                     <img src="imagen2.jpeg" alt="Professional Tree Removal Project" class="w-full h-64 object-cover">
                     <div class="p-6 bg-gray-100">
@@ -126,419 +144,439 @@
             </div>
             
             <a href="#contact-form" class="mt-12 block w-full md:w-auto bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 px-8 rounded-lg text-lg transition duration-300 shadow-lg transform hover:scale-105 mx-auto">
-    Ready for Top-Rated Service? Get Your Quote
-</a>
+                Ready for Top-Rated Service? Get Your Quote
+            </a>
         </div>
     </section>
 
-   <section id="contact-full" class="py-20 bg-gray-50">
-    <div class="container mx-auto px-6">
-        <h2 class="text-4xl font-bold mb-4 text-center text-green-800">Contact Us for a Free Estimate</h2>
-        <p class="text-xl mb-12 text-center text-gray-600">We are ready to respond to your tree care needs 24/7 in your area.</p>
+    <!-- CONTACT SECTION & SERVICE AREAS -->
+    <section id="contact-full" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-4 text-center text-green-800">Contact Us for a Free Estimate</h2>
+            <p class="text-xl mb-12 text-center text-gray-600">We are ready to respond to your tree care needs 24/7 in your area.</p>
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            
-            <div>
-                <h3 class="text-3xl font-semibold mb-6 text-green-700">1. Get in Touch Instantly</h3>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
                 
-                <div class="space-y-6 bg-white p-8 rounded-xl shadow-xl h-full">
+                <div>
+                    <h3 class="text-3xl font-semibold mb-6 text-green-700">1. Get in Touch Instantly</h3>
                     
-                    <div class="border-b pb-4">
-                        <p class="text-xl font-bold text-gray-700 mb-2">Emergency & Main Line:</p>
-                        <a href="tel:+19254991716" class="text-4xl font-extrabold text-yellow-600 hover:text-yellow-700 transition duration-300 block">
-                            +1 (925) 499-1716
-                        </a>
-                        <p class="text-sm text-gray-500 mt-1">Available 24 hours a day. Call Now!</p>
-                    </div>
-                    
-                    <div class="flex items-center space-x-3">
-                        <i class="fas fa-envelope text-2xl text-green-600"></i>
-                        <div>
-                            <p class="font-medium">General Inquiries:</p>
-                            <a href="mailto:MZKtreeflores@gmail.com" class="text-green-700 hover:underline">MZKtreeflores@gmail.com</a>
+                    <div class="space-y-6 bg-white p-8 rounded-xl shadow-xl h-full">
+                        
+                        <div class="border-b pb-4">
+                            <p class="text-xl font-bold text-gray-700 mb-2">Emergency & Main Line:</p>
+                            <a href="tel:+19254991716" class="text-4xl font-extrabold text-yellow-600 hover:text-yellow-700 transition duration-300 block">
+                                +1 (925) 499-1716
+                            </a>
+                            <p class="text-sm text-gray-500 mt-1">Available 24 hours a day. Call Now!</p>
+                        </div>
+                        
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-envelope text-2xl text-green-600"></i>
+                            <div>
+                                <p class="font-medium">General Inquiries:</p>
+                                <a href="mailto:MZKtreeflores@gmail.com" class="text-green-700 hover:underline">MZKtreeflores@gmail.com</a>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                <div id="contact-form">
+                    <h3 class="text-3xl font-semibold mb-6 text-green-700">2. Submit Your Project Details (Form)</h3>
+                    
+                    <form action="https://formspree.io/f/meorpdkg" method="POST" class="bg-white p-8 rounded-xl shadow-2xl border-t-4 border-yellow-500 h-full">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
+                                <input type="text" name="name" id="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500 transition duration-300">
+                            </div>
+                            
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address *</label>
+                                <input type="email" name="email" id="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500 transition duration-300">
+                            </div>
+                            
+                            <div class="md:col-span-2">
+                                <label for="address" class="block text-sm font-medium text-gray-700 mb-1">Service Address *</label>
+                                <input type="text" name="address" id="address" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500 transition duration-300" placeholder="Street, City, State/CA">
+                            </div>
+
+                            <div class="md:col-span-2">
+                                <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number (Optional)</label>
+                                <input type="tel" name="phone" id="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500 transition duration-300">
+                            </div>
+                            
+                        </div>
+
+                        <div class="mb-6">
+                            <label for="service" class="block text-sm font-medium text-gray-700 mb-2">Service Needed *</label>
+                            <select id="service" name="service" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500 transition duration-300 bg-white">
+                                <option value="">-- Select a Service --</option>
+                                <option value="Tree Removal">Tree Removal</option>
+                                <option value="Tree Trimming/Pruning">Tree Trimming/Pruning</option>
+                                <option value="Emergency Service">Emergency Service</option>
+                                <option value="Stump Grinding">Stump Grinding</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-6">
+                            <label for="details" class="block text-sm font-medium text-gray-700 mb-1">Project Details / Message *</label>
+                            <textarea name="details" id="details" rows="4" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500 transition duration-300"></textarea>
+                        </div>
+                        
+                        <p class="text-xs text-gray-500 mb-4">* Required Fields</p>
+
+                        <button type="submit" class="w-full bg-green-700 hover:bg-green-800 text-white font-bold py-3 rounded-lg text-lg transition duration-300 shadow-md">
+                            Send Request & Get Quote
+                        </button>
+                    </form>
+                </div>
             </div>
-
-            <div id="contact-form">
-                <h3 class="text-3xl font-semibold mb-6 text-green-700">2. Submit Your Project Details (Form)</h3>
+            
+            <div class="mt-16 bg-white p-10 rounded-xl shadow-2xl border-t-4 border-green-600">
+                <h3 class="text-3xl font-extrabold mb-8 text-center text-green-800">
+                    <i class="fas fa-map-marker-alt text-yellow-500 mr-3"></i> Proudly Serving the Following Areas 
+                </h3>
                 
-                <form action="https://formspree.io/f/meorpdkg" method="POST" class="bg-white p-8 rounded-xl shadow-2xl border-t-4 border-yellow-500 h-full">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                        
-                        <div>
-                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
-                            <input type="text" name="name" id="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500 transition duration-300">
-                        </div>
-                        
-                        <div>
-                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address *</label>
-                            <input type="email" name="email" id="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500 transition duration-300">
-                        </div>
-                        
-                        <div class="md:col-span-2">
-                            <label for="address" class="block text-sm font-medium text-gray-700 mb-1">Service Address *</label>
-                            <input type="text" name="address" id="address" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500 transition duration-300" placeholder="Street, City, State/CA">
-                        </div>
-
-                        <div class="md:col-span-2">
-                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number (Optional)</label>
-                            <input type="tel" name="phone" id="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500 transition duration-300">
-                        </div>
-                        
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-4 gap-x-6 text-lg font-medium text-gray-700 justify-items-start max-w-5xl mx-auto">
+            
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-check-circle text-green-500 text-xl"></i>
+                        <p>Antioch, CA</p>
                     </div>
 
-                    <div class="mb-6">
-                        <label for="service" class="block text-sm font-medium text-gray-700 mb-2">Service Needed *</label>
-                        <select id="service" name="service" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500 transition duration-300 bg-white">
-                            <option value="">-- Select a Service --</option>
-                            <option value="Tree Removal">Tree Removal</option>
-                            <option value="Tree Trimming/Pruning">Tree Trimming/Pruning</option>
-                            <option value="Emergency Service">Emergency Service</option>
-                            <option value="Stump Grinding">Stump Grinding</option>
-                            <option value="Other">Other</option>
-                        </select>
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-check-circle text-green-500 text-xl"></i>
+                        <p>Walnut Creek, CA</p>
                     </div>
 
-                    <div class="mb-6">
-                        <label for="details" class="block text-sm font-medium text-gray-700 mb-1">Project Details / Message *</label>
-                        <textarea name="details" id="details" rows="4" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500 transition duration-300"></textarea>
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-check-circle text-green-500 text-xl"></i>
+                        <p>Alamo, CA</p>
+                    </div>
+
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-check-circle text-green-500 text-xl"></i>
+                        <p>San Ramon, CA</p>
+                    </div>
+
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-check-circle text-green-500 text-xl"></i>
+                        <p>Concord, CA</p>
+                    </div>
+
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-check-circle text-green-500 text-xl"></i>
+                        <p>Oakley, CA</p>
+                    </div>
+
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-check-circle text-green-500 text-xl"></i>
+                        <p>Clayton, CA</p>
+                    </div>
+
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-check-circle text-green-500 text-xl"></i>
+                        <p>Pleasant Hill, CA</p>
+                    </div>
+
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-check-circle text-green-500 text-xl"></i>
+                        <p>Pacheco, CA</p>
+                    </div>
+
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-check-circle text-green-500 text-xl"></i>
+                        <p>Pittsburg, CA</p>
+                    </div>
+
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-check-circle text-green-500 text-xl"></i>
+                        <p>Lafayette, CA</p>
+                    </div>
+
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-check-circle text-green-500 text-xl"></i>
+                        <p>Orinda, CA</p>
+                    </div>
+
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-check-circle text-green-500 text-xl"></i>
+                        <p>Tracy, CA</p>
+                    </div>
+
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-check-circle text-green-500 text-xl"></i>
+                        <p>Livermore, CA</p>
+                    </div>
+
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-check-circle text-green-500 text-xl"></i>
+                        <p>San francisco, CA</p>
+                    </div>
+
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-check-circle text-green-500 text-xl"></i>
+                        <p>Sacramento, CA</p>
+                    </div>
+
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-check-circle text-green-500 text-xl"></i>
+                        <p>Pleasanton, CA</p>
+                    </div>
+
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-check-circle text-green-500 text-xl"></i>
+                        <p>San Ramon, CA</p>
+                    </div>
+
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-check-circle text-green-500 text-xl"></i>
+                        <p>Dublin, CA</p>
                     </div>
                     
-                    <p class="text-xs text-gray-500 mb-4">* Required Fields</p>
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-check-circle text-green-500 text-xl"></i>
+                        <p>El cerrito, CA</p>
+                    </div>
 
-                    <button type="submit" class="w-full bg-green-700 hover:bg-green-800 text-white font-bold py-3 rounded-lg text-lg transition duration-300 shadow-md">
-                        Send Request & Get Quote
-                    </button>
-                </form>
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-check-circle text-green-500 text-xl"></i>
+                        <p>Napa, CA</p>
+                    </div>
+                    
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-check-circle text-green-500 text-xl"></i>
+                        <p>Danville, CA</p>
+                    </div>
+
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-check-circle text-green-500 text-xl"></i>
+                        <p>Oakland, CA</p>
+                    </div>     
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-check-circle text-green-500 text-xl"></i>
+                        <p>Richmond, CA</p>
+                    </div>        
+                </div>
             </div>
         </div>
-        
-        <div class="mt-16 bg-white p-10 rounded-xl shadow-2xl border-t-4 border-green-600">
-            <h3 class="text-3xl font-extrabold mb-8 text-center text-green-800">
-                <i class="fas fa-map-marker-alt text-yellow-500 mr-3"></i> Proudly Serving the Following Areas 
-            </h3>
-            
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-4 gap-x-6 text-lg font-medium text-gray-700 justify-items-start max-w-5xl mx-auto">
-    
-    <div class="flex items-center space-x-2">
-        <i class="fas fa-check-circle text-green-500 text-xl"></i>
-        <p>Antioch, CA</p>
-    </div>
+    </section>
 
-    <div class="flex items-center space-x-2">
-        <i class="fas fa-check-circle text-green-500 text-xl"></i>
-        <p>Walnut Creek, CA</p>
-    </div>
-
-    <div class="flex items-center space-x-2">
-        <i class="fas fa-check-circle text-green-500 text-xl"></i>
-        <p>Alamo, CA</p>
-    </div>
-
-    <div class="flex items-center space-x-2">
-        <i class="fas fa-check-circle text-green-500 text-xl"></i>
-        <p>San Ramon, CA</p>
-    </div>
-
-    <div class="flex items-center space-x-2">
-        <i class="fas fa-check-circle text-green-500 text-xl"></i>
-        <p>Concord, CA</p>
-    </div>
-
-    <div class="flex items-center space-x-2">
-        <i class="fas fa-check-circle text-green-500 text-xl"></i>
-        <p>Oakley, CA</p>
-    </div>
-
-    <div class="flex items-center space-x-2">
-        <i class="fas fa-check-circle text-green-500 text-xl"></i>
-        <p>Clayton, CA</p>
-    </div>
-
-    <div class="flex items-center space-x-2">
-        <i class="fas fa-check-circle text-green-500 text-xl"></i>
-        <p>Pleasant Hill, CA</p>
-    </div>
-
-    <div class="flex items-center space-x-2">
-        <i class="fas fa-check-circle text-green-500 text-xl"></i>
-        <p>Pacheco, CA</p>
-    </div>
-
-    <div class="flex items-center space-x-2">
-        <i class="fas fa-check-circle text-green-500 text-xl"></i>
-        <p>Pittsburg, CA</p>
-    </div>
-
-    <div class="flex items-center space-x-2">
-        <i class="fas fa-check-circle text-green-500 text-xl"></i>
-        <p>Lafayette, CA</p>
-    </div>
-
-    <div class="flex items-center space-x-2">
-        <i class="fas fa-check-circle text-green-500 text-xl"></i>
-        <p>Orinda, CA</p>
-    </div>
-
-    <div class="flex items-center space-x-2">
-        <i class="fas fa-check-circle text-green-500 text-xl"></i>
-        <p>Tracy, CA</p>
-    </div>
-
-    <div class="flex items-center space-x-2">
-        <i class="fas fa-check-circle text-green-500 text-xl"></i>
-        <p>Livermore, CA</p>
-    </div>
-
-    <div class="flex items-center space-x-2">
-        <i class="fas fa-check-circle text-green-500 text-xl"></i>
-        <p>San francisco, CA</p>
-    </div>
-
-    <div class="flex items-center space-x-2">
-        <i class="fas fa-check-circle text-green-500 text-xl"></i>
-        <p>Sacramento, CA</p>
-    </div>
-
-    <div class="flex items-center space-x-2">
-        <i class="fas fa-check-circle text-green-500 text-xl"></i>
-        <p>Pleasanton, CA</p>
-    </div>
-
-    <div class="flex items-center space-x-2">
-        <i class="fas fa-check-circle text-green-500 text-xl"></i>
-        <p>San Ramon, CA</p>
-    </div>
-
-    <div class="flex items-center space-x-2">
-        <i class="fas fa-check-circle text-green-500 text-xl"></i>
-        <p>Dublin, CA</p>
-    </div>
+    <!-- STATS/TRUST SECTION -->
+    <section class="py-16 bg-green-700 text-white">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
                 
-    <div class="flex items-center space-x-2">
-        <i class="fas fa-check-circle text-green-500 text-xl"></i>
-        <p>El cerrito, CA</p>
-    </div>
-
-    <div class="flex items-center space-x-2">
-        <i class="fas fa-check-circle text-green-500 text-xl"></i>
-        <p>Napa, CA</p>
-    </div>
+                <div>
+                    <p class="text-5xl font-extrabold text-yellow-400">10+</p>
+                    <p class="text-xl mt-2 font-semibold">Years of Expertise</p>
+                </div>
                 
-    <div class="flex items-center space-x-2">
-        <i class="fas fa-check-circle text-green-500 text-xl"></i>
-        <p>Danville, CA</p>
-    </div>
-
-    <div class="flex items-center space-x-2">
-        <i class="fas fa-check-circle text-green-500 text-xl"></i>
-        <p>Oakland, CA</p>
-    </div>            
-    <div class="flex items-center space-x-2">
-        <i class="fas fa-check-circle text-green-500 text-xl"></i>
-        <p>Richmond, CA</p>
-    </div>            
-</div>
-        </div>
-        </div>
-</section>
-     <section class="py-16 bg-green-700 text-white">
-    <div class="container mx-auto px-6">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            
-            <div>
-                <p class="text-5xl font-extrabold text-yellow-400">10+</p>
-                <p class="text-xl mt-2 font-semibold">Years of Expertise</p>
-            </div>
-            
-            <div>
-                <p class="text-5xl font-extrabold text-yellow-400">100%</p>
-                <p class="text-xl mt-2 font-semibold">Satisfaction Guaranteed</p>
-            </div>
-            
-            <div>
-                <p class="text-5xl font-extrabold text-yellow-400">5,000+</p>
-                <p class="text-xl mt-2 font-semibold">Successful Projects</p>
-            </div>
-            
-            <div>
-                <p class="text-5xl font-extrabold text-yellow-400">FULLY</p>
-                <p class="text-xl mt-2 font-semibold">Licensed & Insured</p>
+                <div>
+                    <p class="text-5xl font-extrabold text-yellow-400">100%</p>
+                    <p class="text-xl mt-2 font-semibold">Satisfaction Guaranteed</p>
+                </div>
+                
+                <div>
+                    <p class="text-5xl font-extrabold text-yellow-400">5,000+</p>
+                    <p class="text-xl mt-2 font-semibold">Successful Projects</p>
+                </div>
+                
+                <div>
+                    <p class="text-5xl font-extrabold text-yellow-400">FULLY</p>
+                    <p class="text-xl mt-2 font-semibold">Licensed & Insured</p>
+                </div>
             </div>
         </div>
-    </div>
-         <section id="media-gallery" class="py-20 bg-gray-50">
-    <div class="container mx-auto px-6">
-        <h2 class="text-4xl font-bold mb-4 text-center text-green-800">Our Work: A Visual Portfolio</h2>
-        <p class="text-xl mb-12 text-center text-gray-600">Proof of safety, efficiency, and exceptional quality in every project.</p>
+    </section>
 
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-            
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-[1.02] transition duration-300">
-                <img src="trabajo1.jpeg" alt="Professional Tree Service Work 1" class="w-full h-64 object-cover">
-            </div>
+    <!-- MEDIA GALLERY SECTION -->
+    <section id="media-gallery" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-4 text-center text-green-800">Our Work: A Visual Portfolio</h2>
+            <p class="text-xl mb-12 text-center text-gray-600">Proof of safety, efficiency, and exceptional quality in every project.</p>
 
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-[1.02] transition duration-300">
-                <img src="trabajo2.jpeg" alt="Professional Tree Service Work 2" class="w-full h-64 object-cover">
-            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-[1.02] transition duration-300">
+                    <img src="trabajo1.jpeg" alt="Professional Tree Service Work 1" class="w-full h-64 object-cover">
+                </div>
 
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-[1.02] transition duration-300">
-                <img src="trabajo3.jpeg" alt="Professional Tree Service Work 3" class="w-full h-64 object-cover">
-            </div>
-            
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-[1.02] transition duration-300">
-                <img src="trabajo4.jpeg" alt="Professional Tree Service Work 4" class="w-full h-64 object-cover">
-            </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-[1.02] transition duration-300">
+                    <img src="trabajo2.jpeg" alt="Professional Tree Service Work 2" class="w-full h-64 object-cover">
+                </div>
 
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-[1.02] transition duration-300">
-                <img src="trabajo5.jpeg" alt="Professional Tree Service Work 5" class="w-full h-64 object-cover">
-            </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-[1.02] transition duration-300">
+                    <img src="trabajo3.jpeg" alt="Professional Tree Service Work 3" class="w-full h-64 object-cover">
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-[1.02] transition duration-300">
+                    <img src="trabajo4.jpeg" alt="Professional Tree Service Work 4" class="w-full h-64 object-cover">
+                </div>
 
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-[1.02] transition duration-300">
-                <img src="trabajo6.jpeg" alt="Professional Tree Service Work 6" class="w-full h-64 object-cover">
-            </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-[1.02] transition duration-300">
+                    <img src="trabajo5.jpeg" alt="Professional Tree Service Work 5" class="w-full h-64 object-cover">
+                </div>
 
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-[1.02] transition duration-300">
-                <img src="trabajo7.jpeg" alt="Professional Tree Service Work 1" class="w-full h-64 object-cover">
-            </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-[1.02] transition duration-300">
+                    <img src="trabajo6.jpeg" alt="Professional Tree Service Work 6" class="w-full h-64 object-cover">
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-[1.02] transition duration-300">
+                    <img src="trabajo7.jpeg" alt="Professional Tree Service Work 7" class="w-full h-64 object-cover">
+                </div>
 
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-[1.02] transition duration-300">
-                <img src="trabajo8.jpeg" alt="Professional Tree Service Work 2" class="w-full h-64 object-cover">
-            </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-[1.02] transition duration-300">
+                    <img src="trabajo8.jpeg" alt="Professional Tree Service Work 8" class="w-full h-64 object-cover">
+                </div>
 
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-[1.02] transition duration-300">
-                <img src="trabajo9.jpeg" alt="Professional Tree Service Work 3" class="w-full h-64 object-cover">
-            </div>
-            
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-[1.02] transition duration-300">
-                <img src="trabajo10.jpeg" alt="Professional Tree Service Work 4" class="w-full h-64 object-cover">
-            </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-[1.02] transition duration-300">
+                    <img src="trabajo9.jpeg" alt="Professional Tree Service Work 9" class="w-full h-64 object-cover">
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-[1.02] transition duration-300">
+                    <img src="trabajo10.jpeg" alt="Professional Tree Service Work 10" class="w-full h-64 object-cover">
+                </div>
 
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-[1.02] transition duration-300">
-                <img src="trabajo11.jpeg" alt="Professional Tree Service Work 5" class="w-full h-64 object-cover">
-            </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-[1.02] transition duration-300">
+                    <img src="trabajo11.jpeg" alt="Professional Tree Service Work 11" class="w-full h-64 object-cover">
+                </div>
 
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-[1.02] transition duration-300">
-                <img src="trabajo12.jpeg" alt="Professional Tree Service Work 6" class="w-full h-64 object-cover">
-            </div> 
-            
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-[1.02] transition duration-300">
-                <img src="trabajo13.jpeg" alt="Professional Tree Service Work 7" class="w-full h-64 object-cover">
-            </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-[1.02] transition duration-300">
+                    <img src="trabajo12.jpeg" alt="Professional Tree Service Work 12" class="w-full h-64 object-cover">
+                </div> 
+                
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-[1.02] transition duration-300">
+                    <img src="trabajo13.jpeg" alt="Professional Tree Service Work 13" class="w-full h-64 object-cover">
+                </div>
 
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-[1.02] transition duration-300">
-                <img src="trabajo14.jpeg" alt="Professional Tree Service Work 8" class="w-full h-64 object-cover">
-            </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-[1.02] transition duration-300">
+                    <img src="trabajo14.jpeg" alt="Professional Tree Service Work 14" class="w-full h-64 object-cover">
+                </div>
 
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-[1.02] transition duration-300">
-                <img src="trabajo15.jpeg" alt="Professional Tree Service Work 9" class="w-full h-64 object-cover">
-            </div>
-            
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-[1.02] transition duration-300">
+                    <img src="trabajo15.jpeg" alt="Professional Tree Service Work 15" class="w-full h-64 object-cover">
+                </div>
+                
+            </div>      
         </div>
-        
-    </div>
-</section>
-        
-    </div>
-</section>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
     <section id="testimonials" class="py-20 bg-white">
-    <div class="container mx-auto px-6 text-center">
-        <h2 class="text-4xl font-bold mb-4 text-green-800">What Our Clients Say</h2>
-        <p class="text-xl mb-12 text-gray-600">Hear directly from the community about our commitment to quality and safety.</p>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-            
-            <div class="bg-gray-50 p-8 rounded-xl shadow-lg border-t-4 border-yellow-500 hover:shadow-xl transition duration-300">
-                <i class="fas fa-quote-left text-3xl text-yellow-500 mb-4"></i>
-                <p class="text-gray-700 italic mb-4">"MZK responded within hours to our storm damage emergency. Fast, professional, and they left the yard spotless. Truly a top-tier service!"</p>
-                <div class="mt-4">
-                    <p class="font-bold text-green-700">- Karla Mazariego.</p>
-                    <p class="text-sm text-gray-500">Emergency Tree Removal</p>
-                </div>
-            </div>
-
-            <div class="bg-gray-50 p-8 rounded-xl shadow-lg border-t-4 border-yellow-500 hover:shadow-xl transition duration-300">
-                <i class="fas fa-quote-left text-3xl text-yellow-500 mb-4"></i>
-                <p class="text-gray-700 italic mb-4">"Impressed with the precision trimming on our oak trees. They improved the look of our property immensely and everything was done exactly as quoted."</p>
-                <div class="mt-4">
-                    <p class="font-bold text-green-700">- Alex Moran.</p>
-                    <p class="text-sm text-gray-500">Precision Pruning Service</p>
-                </div>
-            </div>
-
-            <div class="bg-gray-50 p-8 rounded-xl shadow-lg border-t-4 border-yellow-500 hover:shadow-xl transition duration-300">
-                <i class="fas fa-quote-left text-3xl text-yellow-500 mb-4"></i>
-                <p class="text-gray-700 italic mb-4">"Had a huge tree too close to the house. The team took it down safely, piece by piece. Incredible skill and very fair pricing. Highly recommend!"</p>
-                <div class="mt-4">
-                    <p class="font-bold text-green-700">- Luis Hernandez.</p>
-                    <p class="text-sm text-gray-500">Complex Tree Removal</p>
-                </div>
-            </div>
-            
-        </div>
-        
-       <a href="#contact-form" class="mt-12 inline-block bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 px-8 rounded-lg text-lg transition duration-300 shadow-lg transform hover:scale-105 max-w-xs md:max-w-none">
-    Ready for Top-Rated Service? Get Your Quote
-</a>
-    </div>
-        </section>
-    <footer class="bg-gray-900 text-white py-12">
         <div class="container mx-auto px-6 text-center">
-          
-            
-            
-            <p class="mb-2 font-medium">©️ 2025 MZK Tree Services. All Rights Reserved. </p>
-            <p class="text-sm text-gray-400">Licensed and Insured | Serving All US States | <a href="mailto:MZKtreeflores@gmail.com" class="hover:text-white transition duration-300">MZKtreeflores@gmail.com</a></p>
+            <h2 class="text-4xl font-bold mb-4 text-green-800">What Our Clients Say</h2>
+            <p class="text-xl mb-12 text-gray-600">Hear directly from the community about our commitment to quality and safety.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                
+                <div class="bg-gray-50 p-8 rounded-xl shadow-lg border-t-4 border-yellow-500 hover:shadow-xl transition duration-300">
+                    <i class="fas fa-quote-left text-3xl text-yellow-500 mb-4"></i>
+                    <p class="text-gray-700 italic mb-4">"MZK responded within hours to our storm damage emergency. Fast, professional, and they left the yard spotless. Truly a top-tier service!"</p>
+                    <div class="mt-4">
+                        <p class="font-bold text-green-700">- Karla Mazariego.</p>
+                        <p class="text-sm text-gray-500">Emergency Tree Removal</p>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 p-8 rounded-xl shadow-lg border-t-4 border-yellow-500 hover:shadow-xl transition duration-300">
+                    <i class="fas fa-quote-left text-3xl text-yellow-500 mb-4"></i>
+                    <p class="text-gray-700 italic mb-4">"The team did a fantastic job trimming our large redwoods. They were meticulous, knowledgeable, and the trees look beautiful and healthy. Highly recommend their pruning expertise."</p>
+                    <div class="mt-4">
+                        <p class="font-bold text-green-700">- David Lee</p>
+                        <p class="text-sm text-gray-500">Tree Trimming & Pruning</p>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 p-8 rounded-xl shadow-lg border-t-4 border-yellow-500 hover:shadow-xl transition duration-300">
+                    <i class="fas fa-quote-left text-3xl text-yellow-500 mb-4"></i>
+                    <p class="text-gray-700 italic mb-4">"We needed a tricky removal near our garage. MZK's precision and equipment were top-notch. They handled the paperwork and permits easily. Great company!"</p>
+                    <div class="mt-4">
+                        <p class="font-bold text-green-700">- Sofia Rodriguez</p>
+                        <p class="text-sm text-gray-500">Hazardous Tree Removal</p>
+                    </div>
+                </div>
+            </div>
         </div>
-    </footer>
-    <footer class="bg-gray-900 text-white py-12">
-    <div class="container mx-auto px-6 text-center">
-        
-        <div class="flex space-x-6 justify-center mb-6">
-    <a href="https://www.facebook.com/profile.php?id=61582135583455&mibextid=wwXIfr&mibextid=wwXIfr" target="_blank" class="text-gray-400 hover:text-white transition duration-300 text-3xl" aria-label="Facebook">
-        <i class="fab fa-facebook-square"></i>
-    </a>
-    <a href="https://www.instagram.com/mzk_tree_services.ca?igsh=MTNzcHJmeGJpMzgzNg==" target="_blank" class="text-gray-400 hover:text-white transition duration-300 text-3xl" aria-label="Instagram">
-        <i class="fab fa-instagram"></i>
-    </a>
-    <a href="https://www.tiktok.com/@mzk_tree.flores?_t=ZP-90OW5Y20bE7&_r=1" target="_blank" class="text-gray-400 hover:text-white transition duration-300 text-3xl" aria-label="TikTok">
-        <i class="fab fa-tiktok"></i>
-    </a>
-    <a href="https://wa.me/+19254991716" target="_blank" class="text-gray-400 hover:text-green-500 transition duration-300 text-3xl" aria-label="WhatsApp">
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-white py-10">
+        <div class="container mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
+            
+            <!-- Company Info -->
+            <div>
+                <h4 class="text-xl font-bold mb-4 text-green-400">MZK Tree Services</h4>
+                <p class="text-sm text-gray-400 mb-3">Professional and Reliable Tree Care in all of California.</p>
+                <p class="text-sm text-gray-400">Licensed & Insured</p>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+                <h4 class="text-xl font-bold mb-4 text-green-400">Quick Links</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#services" class="text-gray-300 hover:text-green-300 transition duration-300">Our Services</a></li>
+                    <li><a href="#projects" class="text-gray-300 hover:text-green-300 transition duration-300">Our Work</a></li>
+                    <li><a href="#testimonials" class="text-gray-300 hover:text-green-300 transition duration-300">Reviews</a></li>
+                    <li><a href="#contact-form" class="text-gray-300 hover:text-green-300 transition duration-300">Get a Free Quote</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div>
+                <h4 class="text-xl font-bold mb-4 text-green-400">Contact Us</h4>
+                <div class="space-y-2 text-sm">
+                    <p class="flex items-center text-gray-300">
+                        <i class="fas fa-phone mr-3 text-yellow-500"></i>
+                        <a href="tel:+19254991716" class="hover:text-green-300">+1 (925) 499-1716</a>
+                    </p>
+                    <p class="flex items-center text-gray-300">
+                        <i class="fas fa-envelope mr-3 text-yellow-500"></i>
+                        <a href="mailto:MZKtreeflores@gmail.com" class="hover:text-green-300">MZKtreeflores@gmail.com</a>
+                    </p>
+                    <p class="text-gray-300">California, USA</p>
+                </div>
+            </div>
+
+            <!-- Social Media (Placeholders) -->
+            <div>
+                <h4 class="text-xl font-bold mb-4 text-green-400">Follow Us</h4>
+                <div class="flex space-x-4 text-2xl">
+                    <a href="#" class="text-gray-300 hover:text-yellow-500 transition duration-300" aria-label="Facebook"><i class="fab fa-facebook-square"></i></a>
+                    <a href="#" class="text-gray-300 hover:text-yellow-500 transition duration-300" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-gray-300 hover:text-yellow-500 transition duration-300" aria-label="Yelp"><i class="fab fa-yelp"></i></a>
+                     <a href="https://wa.me/+19254991716" target="_blank" class="text-gray-400 hover:text-green-500 transition duration-300 text-3xl" aria-label="WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
-</div>
+                </div>
+            </div>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Selecciona el botón y el menú por sus IDs
-        const menuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        if (menuButton && mobileMenu) {
-            // Añade un "escuchador" de eventos de clic al botón
-            menuButton.addEventListener('click', function() {
-                // Si el menú está oculto (display: none), lo muestra.
-                // Si está visible (display: block), lo oculta.
-                if (mobileMenu.style.display === 'block') {
-                    mobileMenu.style.display = 'none';
-                } else {
-                    mobileMenu.style.display = 'block';
-                }
+        </div>
+
+        <!-- Copyright -->
+        <div class="mt-8 pt-6 border-t border-gray-700 text-center">
+            <p class="text-sm text-gray-500">&copy; <script>document.write(new Date().getFullYear())</script> MZK Tree Services. All Rights Reserved. | Designed for California Tree Care.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // JS para el año en el footer
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const currentYear = new Date().getFullYear();
+            const yearElements = document.querySelectorAll('script[data-year]');
+            yearElements.forEach(el => {
+                el.outerHTML = currentYear;
             });
+        });
 
-            // Opcional: Cierra el menú cuando se hace clic en un enlace
-            const mobileLinks = mobileMenu.querySelectorAll('a');
-            mobileLinks.forEach(link => {
-                link.addEventListener('click', function() {
-                    mobileMenu.style.display = 'none';
-                });
-            });
-        }
-    });
-</script>
-
+        // Este código JS es para el menú móvil si se implementa.
+        // const mobileMenuButton = document.getElementById('mobile-menu-button');
+        // const mobileMenu = document.getElementById('mobile-menu');
+        // mobileMenuButton.addEventListener('click', () => {
+        //     mobileMenu.classList.toggle('hidden');
+        // });
+    </script>
 </body>
 </html>

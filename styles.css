@@ -1,91 +1,52 @@
 /*
 |--------------------------------------------------------------------------
-| CSS Principal (styles.css)
+| CSS Corregido para la Sección 'Hero' (Solo el bloque superior usa la imagen)
 |--------------------------------------------------------------------------
-| Contiene todos los estilos CSS que estaban en la etiqueta <style> del HTML.
+| Aplicamos los estilos de fondo a la clase .hero-bg.
 */
 
-/* Estilos base del diseño limpio */
 .hero-bg {
     /* REEMPLAZAR: Cambia esta URL por una imagen profesional */
     background-image: url('arbol.jpeg');
-   body {
+    
     /* 1. Asegura que la imagen no se repita */
     background-repeat: no-repeat;
     
-    /* 2. Escala la imagen para que cubra toda la pantalla */
-    background-size: cover; 
+    /* 2. Escala la imagen para que cubra toda la sección */
+    background-size: cover;
     
-    /* 3. Fija la imagen para que el contenido se desplace sobre ella (efecto Parallax) */
-    background-attachment: fixed; 
+    /* 3. Fija la imagen para que el contenido se desplace sobre ella (opcional) */
+    background-attachment: fixed; /* O puedes usar 'scroll' si no quieres el efecto parallax */
     
     /* 4. Centra la imagen en el viewport */
-    background-position: center center; 
+    background-position: center center;
+    
+    /* 5. VITAL: Asegura que tenga una altura mínima para que la imagen se vea */
+    min-height: 100vh;
 }
 
-/* OPCIONAL: Si necesitas que el fondo tenga una altura mínima */
-.hero-section { /* o el nombre del div de tu fondo */
-    min-height: 100vh; /* Asegura que ocupe al menos el 100% de la altura del viewport */
+/* El body solo tendrá un color de fondo para el resto de la página (opcional) */
+body {
+    background-color: #f8f7f5; /* El color claro que se ve en la imagen del logo */
+    /* ... otros estilos de body ... */
 }
+
+/* El resto de tus estilos... */
+
 html {
     scroll-behavior: smooth;
 }
-/* Estilo para el contenedor del logo (mantenido, aunque las clases de Tailwind hacen la magia) */
 .logo-container {
-    height: 40px; 
+    height: 40px;
     display: flex;
     align-items: center;
 }
-    /* Media Query para Móviles (pantallas de 600px o menos) */
 @media (max-width: 600px) {
-
-    /* Reduce el tamaño del texto principal en el móvil */
     h1 {
-        font-size: 1.8em; /* De 2em a 1.8em, por ejemplo */
+        font-size: 1.8em;
     }
-
-    /* Reduce el tamaño del texto del botón para que quepa */
     .cta-button {
-        padding: 15px 20px; /* Reducimos un poco el padding */
-        font-size: 1.1em;   /* Reducimos el tamaño de la fuente */
-    }
-}
-    /* Oculta el menú móvil por defecto */
-#mobile-menu {
-    display: none; 
-    position: absolute; /* Para que se superponga al contenido */
-    top: 60px; /* Ajusta esta altura para que quede debajo de tu header */
-    left: 0;
-    right: 0;
-    background-color: #333; /* Fondo oscuro para el menú */
-    z-index: 10;
-    padding: 10px;
-    text-align: center;
-}
-#mobile-menu a {
-    display: block; /* Cada enlace ocupa una línea */
-    padding: 10px;
-    color: white;
-    text-decoration: none;
-    border-bottom: 1px solid #444;
-}
-
-/* El botón de hamburguesa debe ocultarse en escritorio */
-.menu-icon {
-    display: none; 
-    font-size: 30px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: #fff; /* Color del icono */
-}
-
-/* Media Query: Muestra la hamburguesa SOLO en pantallas pequeñas */
-@media (max-width: 768px) {
-    .menu-icon {
-        display: block; /* Muestra el botón de 3 líneas en móvil */
-    }
-    .desktop-nav { /* Oculta tu navegación principal de escritorio en móvil */
-        display: none;
+        padding: 15px 20px;
+        font-size: 1.1em;
     }
 }
