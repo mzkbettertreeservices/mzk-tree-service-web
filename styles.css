@@ -50,3 +50,42 @@ html {
         font-size: 1.1em;   /* Reducimos el tamaño de la fuente */
     }
 }
+    /* Oculta el menú móvil por defecto */
+#mobile-menu {
+    display: none; 
+    position: absolute; /* Para que se superponga al contenido */
+    top: 60px; /* Ajusta esta altura para que quede debajo de tu header */
+    left: 0;
+    right: 0;
+    background-color: #333; /* Fondo oscuro para el menú */
+    z-index: 10;
+    padding: 10px;
+    text-align: center;
+}
+#mobile-menu a {
+    display: block; /* Cada enlace ocupa una línea */
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px solid #444;
+}
+
+/* El botón de hamburguesa debe ocultarse en escritorio */
+.menu-icon {
+    display: none; 
+    font-size: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #fff; /* Color del icono */
+}
+
+/* Media Query: Muestra la hamburguesa SOLO en pantallas pequeñas */
+@media (max-width: 768px) {
+    .menu-icon {
+        display: block; /* Muestra el botón de 3 líneas en móvil */
+    }
+    .desktop-nav { /* Oculta tu navegación principal de escritorio en móvil */
+        display: none;
+    }
+}
